@@ -8,9 +8,6 @@ angular
 	var options = {
 	  frequency: 250
 	}
-	function watchAccelerator()
-	{
-		
 	supersonic.device.accelerometer.watchAcceleration(options).onValue(function(acceleration) {
 	  $scope.acceleration = acceleration;
 	  supersonic.logger.log(
@@ -20,5 +17,4 @@ angular
 		"Timestamp: " + acceleration.timestamp
 	  );
 	});	
-	}
   });

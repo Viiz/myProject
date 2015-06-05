@@ -29,21 +29,6 @@
   This application is still in developing. Please try again later to see if there is an update!
   </p>
 
-	<script>
-	function check()
-	{
-		if(localStorage.getItem("Naam"))
-		{
-			alert('Er is een naam');
-		}
-	}
-	
-	function removeKey()
-	{
-		localStorage.removeItem("Naam");
-	}
-	</script>
-
   <super-navigate location="example#view-requests">
     <button class="button button-block button-stable icon-left super-android-friends">View Requests</button>
   </super-navigate>
@@ -56,6 +41,6 @@
     <button class="button button-block button-stable icon-left super-android-settings">Settings</button>
   </super-navigate>
 
-<button onClick="check()">check</button>
-<button onClick="removeKey()">remove</button>
+<!--<button onClick="check()">check</button>
+<button onClick="removeKey()">remove</button>-->
 </div>
