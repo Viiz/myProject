@@ -1,0 +1,25 @@
+<super-navbar>
+  <super-navbar-title>
+    Log In
+  </super-navbar-title>
+</super-navbar>
+
+<div class="padding">
+
+	<p>LOG IN SCREEN</p>
+	<p>
+    <form action="logged-in.html">
+  		Full Name: <input type="text" id="username" width="100" border="1"><br>
+  		<!--<input type="submit" value="Log In">-->
+	</form></p>
+    <button onClick="logInFunction()">Log In</button>
+    
+    <script>
+		function logInFunction(){
+			var naam = 'Not Set';
+			naam = document.getElementById("username").value;
+			localStorage.setItem("Naam", naam);
+			alert(naam);
+		}
+	</script>
+</div>

@@ -1,0 +1,63 @@
+/***********************************************************
+ * These styles apply for native components on iOS.
+ * Read more about native styles at http://docs.appgyver.com
+ ***********************************************************/
+/* Background - Balk boven */
+navigation-bar {
+  background-color: #27ae60;
+  color: #ffffff;
+}
+
+/* titel - Balk Boven */
+navigation-bar title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+navigation-bar button, navigation-bar back-bar-button {
+  color: #ffffff;
+  font-weight: 300;
+}
+
+/* Background - Balk Onder */
+tab-bar {
+  background-color: #27ae60;
+  border-top: 1px #d8d8d8 solid;
+}
+
+/* Tekst - Balk Onder */
+tab-bar tab-bar-item {
+  color: #B8BFBC;
+  font-family: "Avenir";
+  font-size: 10px;
+}
+
+/* Kleur Tekst Selected - Balk Onder */
+tab-bar tab-bar-item:selected {
+  color: #ffffff;
+}
+
+tab-bar {
+	color: 	#ffffff;
+}
+
+tab-bar-item#settings {
+  background-image: url(icons/cog.svg);
+}
+
+tab-bar-item#geolocation {
+  background-image: url(icons/world.png);
+}
+
+tab-bar-item#index {
+  background-image: url(icons/home.svg);
+}
+
+tab-bar-item#internet {
+  background-image: url(icons/search.svg);
+}
+
+tab-bar-item#accelerometer {
+  background-image: url(icons/shake.png);
+}
