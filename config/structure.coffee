@@ -22,7 +22,7 @@ module.exports =
   ]
 	
   # rootView:
-  #   location: "superhero#index"
+  #   location: "username#index"
 
   preloads: [
     {
