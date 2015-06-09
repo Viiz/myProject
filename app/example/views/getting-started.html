@@ -1,23 +1,63 @@
 <script>
 	function check()
 	{
-		if(localStorage.getItem("Naam"))
+		if(localStorage.getItem("Name"))
 		{
 			alert('Er is een naam');
 		}
+		alert(localStorage.getItem("Range"));
 	}
 	
 	function removeKey()
 	{
-		localStorage.removeItem("Naam");
+		localStorage.removeItem("Name");
 	}
+	
+	function removeRequest()
+	{
+		localStorage.removeItem("Title");
+		localStorage.removeItem("Request");
+		localStorage.removeItem("Submitter");
+	}
+	
+	function show(which)
+	{		
+		which.style.display = "block";
+	}
+	
+	function hide(which)
+	{
+		which.style.display = "none";
+	}
+	
+	function checkElement()
+	{
+		if(localStorage.getItem("Name"))
+		{
+			var element = document.getElementById("welcome");
+			element.innerHTML = "You are logged in as: " + localStorage.getItem("Name") + "!";
+			hide(document.getElementById("notLoggedIn"));
+			show(document.getElementById("loggedIn"));
+		}
+		else
+		{
+			var element = document.getElementById("welcome");
+			element.innerHTML = "You are not logged in!";
+			show(document.getElementById("notLoggedIn"));
+			hide(document.getElementById("loggedIn"));
+		}
+	}	
+	
+	setInterval(function() {
+    	checkElement();
+}, 500)
 </script>
     
 <div class="padding" id="block">
 
   <super-navbar>
     <super-navbar-title>
-      Karma
+      Main Menu
     </super-navbar-title>
   </super-navbar>
 
@@ -27,20 +67,47 @@
   
   <p>
   This application is still in developing. Please try again later to see if there is an update!
+  <center><div id="welcome"></div></center>
   </p>
-
-  <super-navigate location="example#view-requests">
-    <button class="button button-block button-stable icon-left super-android-friends">View Requests</button>
-  </super-navigate>
-
-  <super-navigate location="example#log-in">
-    <button class="button button-block button-stable icon-left super-android-contact">Log In</button>
-  </super-navigate>
+  <div id="notLoggedIn" style="display:block">
+      <super-navigate location="example#view-requests">
+        <button class="button button-block button-stable icon-left super-ios-eye">View Requests</button>
+      </super-navigate>
+      
+      <super-navigate location="example#log-in">
+    	<button class="button button-block button-stable icon-left super-log-in">Log In</button>
+  	  </super-navigate>
+      
+      <super-navigate location="example#register">
+    	<button class="button button-block button-stable icon-left super-compose">Register</button>
+  	  </super-navigate>
+  </div>
   
-  <super-navigate location="example#settings">
+  <div id="loggedIn" style="display:none">
+  	  <super-navigate location="example#view-requests-logged">
+    	<button class="button button-block button-stable icon-left super-ios-eye">View Requests</button>
+  	  </super-navigate>
+      
+      <super-navigate location="example#ask-help">
+    	<button class="button button-block button-stable icon-left super-chatbubbles">Ask Help</button>
+  	  </super-navigate>
+      
+      <!--<super-navigate view-id="profile">
+    	<button class="button button-block button-stable icon-left super-android-contact">Profile</button>
+  	  </super-navigate>-->
+      
+      <button class="button button-block button-stable icon-left super-log-out" onclick="removeKey()">Log Out</button>
+  </div>
+  
+  <super-navigate view-id="settings">
     <button class="button button-block button-stable icon-left super-android-settings">Settings</button>
   </super-navigate>
-
-<!--<button onClick="check()">check</button>
-<button onClick="removeKey()">remove</button>-->
+  
+  <!--<super-navigate location="example#database">
+    <button class="button button-block button-stable icon-left super-clipboard">Database</button>
+  </super-navigate>-->
+  
+<!--<button onClick="checkElement()">updateElement</button>-->
+<!--<button onClick="check()">check</button>-->
+<!--<button onClick="removeRequest()">remove</button>-->
 </div>

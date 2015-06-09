@@ -1,0 +1,57 @@
+<super-navbar>
+  <super-navbar-title>
+    Register
+  </super-navbar-title>
+</super-navbar>
+
+<div class="padding">
+    
+    <p id="registerPart">
+    	<div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Username</span>
+                <input id="rUsername" type="text" placeholder="Your Username"  required="required" autofocus="autofocus">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Name</span>
+                <input id="rName" type="text" placeholder="First and last name"  required="required">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+                <input id="rEmail" type="email" placeholder="example@domain.com"  required="required">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Phone</span>
+                <input id="rPhone" type="tel" placeholder="Eg. +316 12345678"  required="required">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Password</span>
+                <input id="rPassword" type="password" placeholder="Your Password" required="required">
+            </label>
+            <button class="button button-block button-stable icon-left super-checkmark-round" id="registerButton" onClick="registerFunction()">Register</button>
+        </div>
+    </p>
+    
+    <script>	
+	var Users = supersonic.data.model('user');
+		
+	function registerFunction()
+	{
+		var object = {
+			username: document.getElementById("rUsername").value,
+			name: document.getElementById("rName").value,
+			password: document.getElementById("rPassword").value,
+			phone: document.getElementById("rPhone").value,
+			email: document.getElementById("rEmail").value,
+		};
+				
+		var user = new Users(object);
+		user.save().then( function() 
+		{
+			alert("Account Created! Return to Main Menu.");
+		});	
+			
+		localStorage.setItem("Name", document.getElementById("rName").value);
+	}
+	</script>
+</div>

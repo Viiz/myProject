@@ -30,8 +30,8 @@ module.exports =
       location: "example#settings"
     }
     {
-      id: "view-requests"
-      location: "example#view-requests"
+      id: "profile"
+      location: "example#profile"
     }
   ]
 

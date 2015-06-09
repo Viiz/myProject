@@ -1,112 +1,86 @@
 <div class="padding" ng-controller="SettingsController">
 
-  <super-navbar>
-    <super-navbar-title>
-      Settings
-    </super-navbar-title>
-  </super-navbar>
+      <super-navbar>
+        <super-navbar-title>
+          Settings
+        </super-navbar-title>
+      </super-navbar>
+        
+      <ul class="list">
+        <li class="item item-toggle">
+           Optie 1
+           <label class="toggle toggle-assertive">
+             <input type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+    
+        <li class="item item-toggle">
+           Optie 2
+           <label class="toggle toggle-royal">
+             <input type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+    
+        <li class="item item-toggle">
+           Optie 3
+           <label class="toggle toggle-balanced">
+             <input type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+    
+        <li class="item item-toggle">
+           Optie 4
+           <label class="toggle toggle-calm">
+             <input type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+      </ul>
+    
+    
+      <div class="list">
+          <div class="item range range-positive">
+              <i class="icon super-volume-low"></i>
+                <input type="range" name="volume" min="0" max="100" value="50">
+              <i class="icon super-volume-high"></i>
+          </div>
+        <div class="item range range-positive">
+          <i class="icon super-ios-circle-outline"></i>
+          <input id="range" type="range" name="range" min="0" max="10" value="5">
+          <i class="icon super-ios-circle-filled"></i>
+        </div>
+        <center id="rangeValue"></center>
+      </div>
+      <button class="button button-block button-stable" onclick="saveRange()">Save Settings</button>
+      
+      </div>
+	
+<script>
+	var range = "";
 
-  <h2>Settings with Toggle</h2>
+	function checkRange()
+	{		
+		document.getElementById("rangeValue").innerHTML = "Current range: " + document.getElementById("range").value + "km";
+		range = document.getElementById("range").value;
+	}
 
-  <ul class="list">
-    <li class="item item-toggle">
-       Optie 1
-       <label class="toggle toggle-assertive">
-         <input type="checkbox">
-         <div class="track">
-           <div class="handle"></div>
-         </div>
-       </label>
-    </li>
+	function saveRange()
+	{
+		localStorage.setItem("Range", range);
+	}
 
-    <li class="item item-toggle">
-       Optie 2
-       <label class="toggle toggle-royal">
-         <input type="checkbox">
-         <div class="track">
-           <div class="handle"></div>
-         </div>
-       </label>
-    </li>
-
-    <li class="item item-toggle">
-       Optie 3
-       <label class="toggle toggle-balanced">
-         <input type="checkbox">
-         <div class="track">
-           <div class="handle"></div>
-         </div>
-       </label>
-    </li>
-
-    <li class="item item-toggle">
-       Optie 4
-       <label class="toggle toggle-calm">
-         <input type="checkbox">
-         <div class="track">
-           <div class="handle"></div>
-         </div>
-       </label>
-    </li>
-  </ul>
-
-  <h2>Settings with Slider</h2>
-
-  <div class="list">
-    <div class="item range range-positive">
-      <i class="icon super-ios7-sunny-outline"></i>
-      <input type="range" name="volume" min="0" max="100" value="33">
-      <i class="icon super-ios7-sunny"></i>
-    </div>
-
-    <div class="item range range-assertive">
-      <i class="icon super-ios7-star-outline"></i>
-      <input type="range" name="bass" min="0" max="100" value="90">
-      <i class="icon super-ios7-star"></i>
-    </div>
-
-    <div class="item range range-energized">
-      <i class="icon super-ios7-heart-outline"></i>
-      <input type="range" name="treble" min="0" max="100" value="66">
-      <i class="icon super-ios7-heart"></i>
-    </div>
-
-    <div class="item range range-balanced">
-      <i class="icon super-ios7-bolt-outline"></i>
-      <input type="range" name="awesomeness" min="0" max="100" value="50">
-      <i class="icon super-ios7-bolt"></i>
-    </div>
-
-    <div class="item range range-royal">
-      <i class="icon super-ios7-wineglass-outline"></i>
-      <input type="range" name="unicorns" min="0" max="100" value="10">
-      <i class="icon super-ios7-wineglass"></i>
-    </div>
-  </div>
-
-  <h2>Settings with Checkboxes</h2>
-
-  <ul class="list">
-    <li class="item item-checkbox">
-       <label class="checkbox">
-         <input type="checkbox">
-       </label>
-       X-Wing
-    </li>
-
-    <li class="item item-checkbox">
-       <label class="checkbox checkbox-assertive">
-         <input type="checkbox">
-       </label>
-       TIE Fighter
-    </li>
-
-    <li class="item item-checkbox">
-       <label class="checkbox checkbox-calm">
-         <input type="checkbox">
-       </label>
-       A-Wing
-    </li>
-  </ul>
-
-</div>
+	setInterval(function() {
+    	checkRange();
+	}, 100)
+</script>

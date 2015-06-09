@@ -8,23 +8,27 @@
   <div class="padding">
     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
     <div ng-hide="showSpinner">
-      <h2 ng-bind="username['alter-ego']"></h2>
+      <h2 ng-bind="user['username']"></h2>
       
       
       
-       <p>name: <span ng-bind="username['name']"></span></p> 
+       <p>name: <span ng-bind="user['name']"></span></p> 
       
-       <p>publisher: <span ng-bind="username['publisher']"></span></p> 
+       <p>email: <span ng-bind="user['email']"></span></p> 
+      
+       <p>phone: <span ng-bind="user['phone']"></span></p> 
+      
+       <p>password: <span ng-bind="user['password']"></span></p> 
       
 
 
-      <super-modal-show location="username#edit?id={{ username.id }}">
+      <super-modal-show location="user#edit?id={{ user.id }}">
         <button class="button button-block button-positive">
           Edit
         </button>
       </super-modal-show>
 
-      <button ng-click="remove(username.id)" class="button button-block button-negative">
+      <button ng-click="remove(user.id)" class="button button-block button-negative">
         Remove
       </button>
     </div>

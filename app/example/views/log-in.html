@@ -1,25 +1,49 @@
 <super-navbar>
   <super-navbar-title>
-    Log In
+    Account
   </super-navbar-title>
 </super-navbar>
 
 <div class="padding">
 
-	<p>LOG IN SCREEN</p>
-	<p>
-    <form action="logged-in.html">
-  		Full Name: <input type="text" id="username" width="100" border="1"><br>
-  		<!--<input type="submit" value="Log In">-->
-	</form></p>
-    <button onClick="logInFunction()">Log In</button>
+	<p id="logInPart">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Username</span>
+                <input id="lName" type="text" placeholder="Your Username"  required="required" autofocus="autofocus">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Password</span>
+                <input id="lPassword" type="password" placeholder="Your Password" required="required">
+            </label>
+            <button class="button button-block button-stable icon-left super-log-in" id="logInButton" onClick="logInFunction()">Log In</button>
+        </div>
+    </p>
     
     <script>
-		function logInFunction(){
-			var naam = 'Not Set';
-			naam = document.getElementById("username").value;
-			localStorage.setItem("Naam", naam);
-			alert(naam);
-		}
+	var Users = supersonic.data.model('user');
+	
+	function logInFunction()
+	{
+		Users.findAll().then( function(allUsers) 
+		{
+			for (i = 0; i < allUsers.length; i++) 
+			{
+				if(allUsers[i].username == document.getElementById("lName").value)
+				{
+					//alert("Username Found!");
+					if(allUsers[i].password == document.getElementById("lPassword").value)
+					{
+						alert("Log in Successfull, return to Main Menu");
+						localStorage.setItem("Name", allUsers[i].name);
+					}
+					else
+					{
+						alert("Username / Password combination is not correct!");
+					}
+				}
+			}
+		});
+	}
 	</script>
 </div>

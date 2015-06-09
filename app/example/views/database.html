@@ -1,0 +1,111 @@
+<div class="padding">
+
+  <super-navbar>
+    <super-navbar-title>
+      Database
+    </super-navbar-title>
+  </super-navbar>
+  
+  <div id="dbContent">
+  	<form>
+    	<fieldset>
+    		<ol>
+                <li>
+                    <label for=username>Username</label>
+                    <input id="username" name=username type="text" placeholder="username" required autofocus="autofocus" />
+                </li>
+                <!--<li>
+                    <label for=fullname>Full Name</label>
+                    <input id="fullname" name=name type="text" placeholder="Full Name" required/>
+                </li>
+                <li>-->
+                    <label for=password>Password</label>
+                    <input id="password" name=password type="password" placeholder="Password" required/>
+                </li>
+                <!--<li>
+                    <label for=email>email</label>
+                    <input id="email" name=email type="email" placeholder="email" required/>
+                </li>
+                <li>
+                    <label for=phone>phone</label>
+                    <input id="phone" name=phone type="tel" placeholder="telephone" required/>
+                </li>-->
+                <button class="button button-block button-stable icon-left super-checkmark-round" id="dbButton" onClick="checkPassword()">Check</button>
+            </ol>
+            
+    	</fieldset>
+    </form>
+  </div>
+  
+</div>
+
+<script>
+	var Users = supersonic.data.model('user');
+	
+	function checkPassword()
+	{
+		Users.findAll().then( function(allUsers) 
+		{
+			for (i = 0; i < allUsers.length; i++) 
+			{
+				if(allUsers[i].username == document.getElementById("username").value)
+				{
+					alert("username found");
+					if(allUsers[i].password == document.getElementById("password").value)
+					{
+						alert("Log in Successfull");
+					}
+					else
+					{
+						alert("Username / Password combination is not correct!");
+					}
+				}
+			}
+		});
+	}
+	
+	function checkViiz()
+	{
+		var un = document.getElementById("username").value;
+		alert(un);
+		
+		Users.findAll().then( function(allUsers) 
+			{
+				for (i = 0; i < allUsers.length; i++) 
+				{
+					if(allUsers[i].username == un)
+					{
+						alert("username found");
+					}
+				}
+			});
+	}
+	
+	//Usernames.findAll().then( function(allUsers)
+	//{
+		//alert(allUsers[0].username)
+	//});
+	
+	/*function addUser()
+	{
+		//alert(document.getElementById("username").value);
+		
+		
+		var object = {
+		  username: document.getElementById("username").value,
+		  name: document.getElementById("fullname").value,
+		  password: document.getElementById("password").value,
+		  phone: document.getElementById("phone").value,
+		  email: document.getElementById("email").value,
+		};
+
+		/*alert(object.username);
+		alert(object.fullname);
+		alert(object.password);
+
+		var user = new Users(object);
+		user.save().then( function() {
+		  alert("User Created!");
+		});
+	}*/
+</script>

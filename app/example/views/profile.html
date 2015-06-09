@@ -1,0 +1,72 @@
+<div class="padding" ng-controller="SettingsController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Profile
+    </super-navbar-title>
+  </super-navbar>
+
+  <h2>Settings with Toggle</h2>
+
+  <ul class="list">
+    <li class="item item-toggle">
+       Private
+       <label class="toggle toggle-assertive">
+         <input type="checkbox">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+
+    <li class="item item-toggle">
+       Receive Messages
+       <label class="toggle toggle-royal">
+         <input type="checkbox">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+
+  <h3>Range Settings</h3>
+
+  <div class="list">
+    <div class="item range range-positive">
+      <i class="icon super-ios7-sunny-outline"></i>
+      <input id="range" type="range" name="range" min="0" max="10" value="5">
+      <i class="icon super-ios7-sunny"></i>
+    </div>
+    <center id="rangeValue"></center>
+  </div>
+
+  <h2>Settings with Checkboxes</h2>
+
+  <ul class="list">
+    <li class="item item-checkbox">
+       <label class="checkbox">
+         <input type="checkbox">
+       </label>
+       Receive Mail
+    </li>
+
+    <li class="item item-checkbox">
+       <label class="checkbox checkbox-assertive">
+         <input type="checkbox">
+       </label>
+       Receive Newletter
+    </li>
+  </ul>
+
+</div>
+
+<script>
+	function checkRange()
+	{		
+		document.getElementById("rangeValue").innerHTML = "At the moment, the set range is " + document.getElementById("range").value + "km";
+	}
+
+	setInterval(function() {
+    	checkRange();
+}, 100)
+</script>

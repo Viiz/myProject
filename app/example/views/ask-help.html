@@ -1,0 +1,55 @@
+<super-navbar>
+  <super-navbar-title>
+    Ask Help
+  </super-navbar-title>
+</super-navbar>
+
+<div class="padding">
+	<div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Title</span>
+                <input id="title" type="text" placeholder="Title"  required="required" autofocus="autofocus">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Request</span>
+    			<textarea id="content" rows="16" placeholder="Your Request"></textarea>
+  			</label>
+            
+            <button class="button button-block button-stable icon-left super-checkmark-round" id="requestbutton" onClick="submitRequest()">Request</button>
+        </div>	
+</div>
+
+<script>
+var Requests = supersonic.data.model('request');
+
+function submitRequest()
+{
+	var object = 
+	{
+		title: document.getElementById("title").value,
+		content: document.getElementById("content").value,
+		poster: localStorage.getItem("Name"),
+	};
+			
+	var request = new Requests(object);
+	request.save().then( function() 
+	{
+		alert("Request Posted! Return to Main Menu.");
+	});	
+}
+
+	/*function saveRequest()
+	{
+		var title = '';
+		title = document.getElementById("title").value;
+		localStorage.setItem("Title", title);
+		
+		var request = '';
+		request = document.getElementById("request").value;
+		localStorage.setItem("Request", request);
+		
+		var submitter = '';
+		submitter = localStorage.getItem("Name");
+		localStorage.setItem("Submitter", submitter);
+	}*/
+</script>

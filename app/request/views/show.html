@@ -8,23 +8,23 @@
   <div class="padding">
     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
     <div ng-hide="showSpinner">
-      <h2 ng-bind="superhero['alter-ego']"></h2>
+      <h2 ng-bind="request['title']"></h2>
       
       
       
-       <p>name: <span ng-bind="superhero['name']"></span></p> 
+       <p>content: <span ng-bind="request['content']"></span></p> 
       
-       <p>publisher: <span ng-bind="superhero['publisher']"></span></p> 
+       <p>poster: <span ng-bind="request['poster']"></span></p> 
       
 
 
-      <super-modal-show location="superhero#edit?id={{ superhero.id }}">
+      <super-modal-show location="request#edit?id={{ request.id }}">
         <button class="button button-block button-positive">
           Edit
         </button>
       </super-modal-show>
 
-      <button ng-click="remove(superhero.id)" class="button button-block button-negative">
+      <button ng-click="remove(request.id)" class="button button-block button-negative">
         Remove
       </button>
     </div>

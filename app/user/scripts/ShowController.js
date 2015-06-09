@@ -1,14 +1,14 @@
 angular
-  .module('username')
-  .controller("ShowController", function ($scope, Username, supersonic) {
-    $scope.username = null;
+  .module('user')
+  .controller("ShowController", function ($scope, User, supersonic) {
+    $scope.user = null;
     $scope.showSpinner = true;
     $scope.dataId = undefined;
 
     var _refreshViewData = function () {
-      Username.find($scope.dataId).then( function (username) {
+      User.find($scope.dataId).then( function (user) {
         $scope.$apply( function () {
-          $scope.username = username;
+          $scope.user = user;
           $scope.showSpinner = false;
         });
       });
@@ -27,7 +27,7 @@ angular
 
     $scope.remove = function (id) {
       $scope.showSpinner = true;
-      $scope.username.delete().then( function () {
+      $scope.user.delete().then( function () {
         supersonic.ui.layers.pop();
       });
     }

@@ -16,8 +16,10 @@ traits:
           default: 62315
 
 schemas:
-  - username_collection: '{"$schema":"http://json-schema.org/schema","title":"username collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical username representation","properties":{"username":{"type":"string"},"password":{"type":"string"},"fullname":{"type":"string"}},"required":[]}}}}'
-  - username_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical username representation","properties":{"object":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"},"fullname":{"type":"string"}},"required":[]}}}'
+  - user_collection: '{"$schema":"http://json-schema.org/schema","title":"user collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical user representation","properties":{"username":{"type":"string"},"name":{"type":"string"},"email":{"type":"string"},"phone":{"type":"string"},"password":{"type":"string"}},"required":[]}}}}'
+  - user_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical user representation","properties":{"object":{"type":"object","properties":{"username":{"type":"string"},"name":{"type":"string"},"email":{"type":"string"},"phone":{"type":"string"},"password":{"type":"string"}},"required":[]}}}'
+  - request_collection: '{"$schema":"http://json-schema.org/schema","title":"request collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical request representation","properties":{"title":{"type":"string"},"content":{"type":"string"},"poster":{"type":"string"}},"required":[]}}}}'
+  - request_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical request representation","properties":{"object":{"type":"object","properties":{"title":{"type":"string"},"content":{"type":"string"},"poster":{"type":"string"}},"required":[]}}}'
 
 resourceTypes:
   - dolan_db_collection:
@@ -100,10 +102,20 @@ resourceTypes:
           200:
 
 
-/username:
+/user:
   description: |
     {
-      "resourceName": "username",
+      "resourceName": "user",
+      "identifierKey": "id"
+    }
+  type: dolan_db_collection
+  /{id}:
+    type: dolan_db_member
+
+/request:
+  description: |
+    {
+      "resourceName": "request",
       "identifierKey": "id"
     }
   type: dolan_db_collection
