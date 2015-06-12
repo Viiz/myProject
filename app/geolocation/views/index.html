@@ -3,19 +3,24 @@
     <meta charset="utf-8">
 <html>
   <head>
-  
-      <super-navbar>
-        <super-navbar-title>
-          Karma
-        </super-navbar-title>
-      </super-navbar>
+<super-navbar>  
+<super-navbar-title>    
+Zoeken
+</super-navbar-title>  
+<super-navbar-button side="right" onclick="openSettings()">    
+Instellingen  
+</super-navbar-button>
+</super-navbar>
     <style>
-      html, body, #map-canvas {
+      html, body{
         height: 100%;
 		margin-top: 50px;
         margin: 0px;
         padding: 0px
       }
+	  #map-canvas {
+	  height:100%;
+	  }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 
@@ -109,6 +114,22 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
+  <div class="list list-inset">
+  <label class="item item-input">
+  <i class="icon super-search placeholder-icon"></i>
+    <input type="text" placeholder="Zoeken">
+  </label>
+<label class="item item-input item-select">
+    <div class="input-label">
+      Categorie
+    </div>
+    <select>
+      <option>Klussen</option>
+      <option selected>Tuinwerkzaamheden</option>
+      <option>Zorg</option>
+    </select>
+  </label>
+</div>
     <div id="map-canvas"></div>
   </body>
 </html>

@@ -1,36 +1,42 @@
-<super-navbar>
-  <super-navbar-title>
-    Register
-  </super-navbar-title>
+<super-navbar>  
+<super-navbar-title>    
+Registreren  
+</super-navbar-title>  
+<super-navbar-button side="right" onclick="openSettings()">    
+Instellingen
+</super-navbar-button>
 </super-navbar>
-
+<style>
+.centercontent{
+	text-align: center;
+}
+.purplelink {
+	color:#8e44ad;
+}
+</style>
 <div class="padding">
-    
     <p id="registerPart">
     	<div class="list">
             <label class="item item-input item-stacked-label">
-                <span class="input-label">Username</span>
-                <input id="rUsername" type="text" placeholder="Your Username"  required="required" autofocus="autofocus">
+                <span class="input-label">Naam</span>
+                <input id="rName" type="text" placeholder="Naam"  required="required">
             </label>
             <label class="item item-input item-stacked-label">
-                <span class="input-label">Name</span>
-                <input id="rName" type="text" placeholder="First and last name"  required="required">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Email</span>
+                <span class="input-label">E-mail</span>
                 <input id="rEmail" type="email" placeholder="example@domain.com"  required="required">
             </label>
             <label class="item item-input item-stacked-label">
-                <span class="input-label">Phone</span>
-                <input id="rPhone" type="tel" placeholder="Eg. +316 12345678"  required="required">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Password</span>
-                <input id="rPassword" type="password" placeholder="Your Password" required="required">
+                <span class="input-label">Wachtwoord</span>
+                <input id="rPassword" type="password" placeholder="Wachtwoord" required="required">
             </label>
             <button class="button button-block button-stable icon-left super-checkmark-round" id="registerButton" onClick="registerFunction()">Register</button>
         </div>
     </p>
+    	<div class="list">
+			<div class="centercontent">Inloggen met Facebook</div>
+            <button class="button button-block button-positive" id="registerButton" onClick="registerFunction()"><i class="super-social-facebook"></i></button>
+			<div class="centercontent">Heb je al een account? <a class="purplelink" href="#">Log in</a></div>
+        </div>
     
     <script>	
 	var Users = supersonic.data.model('user');

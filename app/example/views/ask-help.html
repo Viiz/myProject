@@ -1,24 +1,54 @@
-<super-navbar>
-  <super-navbar-title>
-    Ask Help
-  </super-navbar-title>
+<super-navbar>  
+<super-navbar-title>    
+Aanvragen  
+</super-navbar-title>  
+<super-navbar-button side="right" onclick="openSettings()">    
+Instellingen
+</super-navbar-button>
 </super-navbar>
-
-<div class="padding">
-	<div class="list">
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Title</span>
-                <input id="title" type="text" placeholder="Title"  required="required" autofocus="autofocus">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Request</span>
-    			<textarea id="content" rows="16" placeholder="Your Request"></textarea>
-  			</label>
-            
-            <button class="button button-block button-stable icon-left super-checkmark-round" id="requestbutton" onClick="submitRequest()">Request</button>
-        </div>	
+<style>
+.circular {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	padding:0;
+	border: 5px solid #00B5FF;
+}
+</style>
+<a class="item item-thumbnail" href="#"><img class="circular" src="http://fc05.deviantart.net/fs70/f/2014/150/9/6/profile_picture_by_thor_thunderer-d7kdvbh.jpg"></a>
+<div class="list list-inset">
+  <label class="item item-input">
+    <textarea placeholder="Uw opdracht, kort omschreven."></textarea>
+  </label>
+  </div>
+  <div class="list list-inset">
+    <label class="item item-input item-select">
+    <div class="input-label">
+      Aantal personen nodig
+    </div>
+    <select>
+      <option selected>1</option>
+      <option>2</option>
+      <option>3</option>
+	  <option>4</option>
+    </select>
+  </label>
+  </div>
+    <div class="list list-inset">
+    <label class="item item-input">
+    <textarea placeholder="Benodigdheden"></textarea>
+  </label>
+  </div>
+  <div class="list list-inset">
+<button class="button button-block button-positive">
+	Plaatsen
+</button>
 </div>
-
 <script>
 var Requests = supersonic.data.model('request');
 
