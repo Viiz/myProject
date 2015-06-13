@@ -4,10 +4,22 @@
 <super-navbar-title>    
 Meldingen
 </super-navbar-title>  
-<super-navbar-button side="right" onclick="openSettings()">    
-Instellingen
-</super-navbar-button>
 </super-navbar>
+
+<style>
+.button-bar{
+border:none !important;
+}
+.button-bar .button{
+color:#2C3941 !important;
+font-weight:bold !important;
+background-color:#F1F5F8 !important;
+}
+.item-checkbox{
+float:right !important;
+margin:0 !important;
+}
+</style>
 
 <div class="button-bar">
   <a class="button">Mijn aanvragen</a>
@@ -18,20 +30,29 @@ Instellingen
     <img src="http://www.realtimearts.net/data/images/art/46/4640_profile_nilssonpolias.jpg">
     <h2>Helpen in de tuin</h2>
     <p>Ik heb morgen 10 uur 's morgens tijd.</p>
-		<div class="button-bar">
-		  <a class="button button-balanced"><i class="icon super-checkmark"></i></a>
-		  <a class="button button-assertive"><i class="icon super-close"></i></a>
-		</div>
    </div>
-   
+<ul class="list">
+  <li class="item item-checkbox">
+     <label class="checkbox">
+       <input type="checkbox">
+     </label>
+	   Accepteren
+  </li>
+</ul>
+</div>
+
+<div class="list card">
    <div class="item item-avatar">
     <img src="https://lh5.googleusercontent.com/-ZadaXoUTBfs/AAAAAAAAAAI/AAAAAAAAAGA/19US52OmBqc/photo.jpg">
     <h2>Helpen in de tuin</h2>
     <p>Ik help je graag!</p>
-		<div class="button-bar">
-		  <a class="button button-balanced"><i class="icon super-checkmark"></i></a>
-		  <a class="button button-assertive"><i class="icon super-close"></i></a>
-		</div>
    </div>
-	
-	</div>
+<ul class="list">
+  <li class="item item-checkbox">
+     <label class="checkbox">
+       <input type="checkbox">
+     </label>
+	   Accepteren
+  </li>
+</ul>
+</div>

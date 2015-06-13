@@ -4,20 +4,20 @@
  ***********************************************************/
 
 navigation-bar {
-  background-color: #00B5FF;
-  color: #ffffff;
+  background-color: white;
+  color: #22313F;
   padding-left: 6px;
   padding-right: 6px;
 }
 
 navigation-bar title {
-  color: #ffffff;
+  color: #22313F;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 navigation-bar button {
-  color: #ffffff;
+  color: #22313F;
   font-weight: 300;
   margin-left: 6px;
   margin-right: 6px;
@@ -29,7 +29,7 @@ navigation-bar back-indicator {
 }
 
 navigation-bar back-button {
-  color: #ffffff;
+  color: #22313F;
   font-weight: 300;
 }
 
@@ -40,16 +40,20 @@ navigation-bar back-button {
 tab-bar {
   background-color: #ffffff;
   border-top: 1px #d8d8d8 solid;
+  background-color:#2C3941;
 }
 
 tab-bar tab-bar-item {
-  color: #b0b1b4;
+  color: white;
   font-family: "Roboto";
   font-size: 10px;
 }
 
 tab-bar tab-bar-item:selected {
-  color: #1596f7;
+  color:#23A7F1;
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight:bold;
 }
 
 tab-bar divider {
@@ -60,14 +64,16 @@ tab-bar tab-bar-item marker-top:selected {
   background-color: #1596f7;
 }
 
-tab-bar-item#settings {
-  background-image: url(icons/cog.svg);
+/* Tab bar knoppen */
+
+tab-bar-item#accelerometer {
+  background-image: url(icons/notifi.svg);
 }
 
 tab-bar-item#index {
-  background-image: url(icons/home.svg);
+  background-image: url(icons/aanvr.svg);
 }
 
-tab-bar-item#internet {
-  background-image: url(icons/search.svg);
+tab-bar-item#geolocation {
+  background-image: url(icons/map.svg);
 }
