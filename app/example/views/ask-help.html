@@ -16,11 +16,19 @@ Aanvragen
 	padding:0;
 	border: 5px solid #00B5FF;
 }
+.item-thumbnail{
+border-bottom:none !important;
+}
 </style>
 <a class="item item-thumbnail" href="#"><img class="circular" src="http://fc05.deviantart.net/fs70/f/2014/150/9/6/profile_picture_by_thor_thunderer-d7kdvbh.jpg"></a>
 <div class="list list-inset">
   <label class="item item-input">
-    <textarea placeholder="Uw opdracht, kort omschreven."></textarea>
+    <textarea placeholder="Jouw klusje, kort omschreven."></textarea>
+  </label>
+  </div>
+    <div class="list list-inset">
+    <label class="item item-input">
+    <textarea placeholder="Gereedschap"></textarea>
   </label>
   </div>
   <div class="list list-inset">
@@ -37,8 +45,15 @@ Aanvragen
   </label>
   </div>
     <div class="list list-inset">
-    <label class="item item-input">
-    <textarea placeholder="Benodigdheden"></textarea>
+    <label class="item item-input item-select">
+    <div class="input-label">
+      Categorie
+    </div>
+    <select>
+      <option selected>Klussen</option>
+      <option>Tuinwerkzaamheden</option>
+      <option>Zorg</option>
+    </select>
   </label>
   </div>
   <div class="list list-inset">
@@ -61,7 +76,7 @@ function submitRequest()
 	var request = new Requests(object);
 	request.save().then( function() 
 	{
-		alert("Request Posted! Return to Main Menu.");
+		alert("Uw vraag is aangemaakt, keer terug naar het hoofdmenu.");
 	});	
 }
 

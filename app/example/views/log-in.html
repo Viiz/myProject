@@ -5,7 +5,6 @@
 </super-navbar>
 
 <div class="padding">
-
 	<p id="logInPart">
         <div class="list">
             <label class="item item-input item-stacked-label">
@@ -34,12 +33,12 @@
 					//alert("Username Found!");
 					if(allUsers[i].password == document.getElementById("lPassword").value)
 					{
-						alert("Log in Successfull, return to Main Menu");
+						alert("Je bent ingelogd, keer terug naar het hoofdmenu.");
 						localStorage.setItem("Name", allUsers[i].name);
 					}
 					else
 					{
-						alert("Username / Password combination is not correct!");
+						alert("De login gegevens kloppen niet, probeer het opnieuw.");
 					}
 				}
 			}
