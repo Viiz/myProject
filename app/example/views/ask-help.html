@@ -23,12 +23,12 @@ border-bottom:none !important;
 <a class="item item-thumbnail" href="#"><img class="circular" src="http://fc05.deviantart.net/fs70/f/2014/150/9/6/profile_picture_by_thor_thunderer-d7kdvbh.jpg"></a>
 <div class="list list-inset">
   <label class="item item-input">
-    <textarea placeholder="Jouw klusje, kort omschreven."></textarea>
+    <textarea id="title" placeholder="Titel van jouw vraag"></textarea>
   </label>
   </div>
     <div class="list list-inset">
     <label class="item item-input">
-    <textarea placeholder="Gereedschap"></textarea>
+    <textarea id="content" placeholder="Omschrijving"></textarea>
   </label>
   </div>
   <div class="list list-inset">
@@ -36,7 +36,7 @@ border-bottom:none !important;
     <div class="input-label">
       Aantal personen nodig
     </div>
-    <select>
+    <select id="personen">
       <option selected>1</option>
       <option>2</option>
       <option>3</option>
@@ -49,15 +49,16 @@ border-bottom:none !important;
     <div class="input-label">
       Categorie
     </div>
-    <select>
+    <select id="categorie">
       <option selected>Klussen</option>
       <option>Tuinwerkzaamheden</option>
       <option>Zorg</option>
+      <option>Huiswerkzaamheden</option>
     </select>
   </label>
   </div>
   <div class="list list-inset">
-<button class="button button-block button-positive">
+<button onClick="submitRequest()" class="button button-block button-positive">
 	Plaatsen
 </button>
 </div>
@@ -66,10 +67,15 @@ var Requests = supersonic.data.model('request');
 
 function submitRequest()
 {
+	var indexPers = document.getElementById("personen").selectedIndex;
+	var indexCate = document.getElementById("categorie").selectedIndex;
+	
 	var object = 
 	{
 		title: document.getElementById("title").value,
 		content: document.getElementById("content").value,
+		personen: document.getElementById("personen").options[indexPers].text,
+		categorie: document.getElementById("categorie").options[indexCate].text,
 		poster: localStorage.getItem("Name"),
 	};
 			
